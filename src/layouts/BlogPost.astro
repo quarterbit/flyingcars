@@ -1,0 +1,71 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    date: Date;
+    description: string;
+    image?: string;
+    tags?: string[];
+  };
+}
+
+const { frontmatter } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const formattedDate = frontmatter.date.toLocaleDateString('de-DE', {
+  day: 'numeric', month: 'long', year: 'numeric'
+});
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
+  <article>
+    {frontmatter.image && (
+      <div class="w-full h-64 md:h-80 lg:h-96 overflow-hidden bg-slate-100">
+        <img
+          src={`${base}img/${frontmatter.image}`}
+          alt={frontmatter.title}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    )}
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-16">
+      <header class="mb-10">
+        {frontmatter.tags && frontmatter.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-4">
+            {frontmatter.tags.map(tag => (
+              <span class="text-xs px-2.5 py-1 rounded-full bg-sky-50 text-sky-700 font-medium">{tag}</span>
+            ))}
+          </div>
+        )}
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 leading-tight">{frontmatter.title}</h1>
+        <div class="flex items-center gap-3 text-slate-500">
+          <time class="text-sm">{formattedDate}</time>
+          <span class="text-slate-300">&middot;</span>
+          <span class="text-sm">Tom</span>
+        </div>
+      </header>
+
+      <div class="prose prose-lg prose-slate max-w-none
+        prose-headings:text-slate-900 prose-headings:font-bold
+        prose-a:text-sky-600 prose-a:no-underline hover:prose-a:underline
+        prose-img:rounded-lg prose-img:shadow-md
+        prose-table:text-sm
+        prose-th:bg-slate-50 prose-th:text-left prose-th:p-3
+        prose-td:p-3 prose-td:border-t prose-td:border-slate-200
+      ">
+        <slot />
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-200">
+        <a href={base} class="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-medium transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Zurück zur Übersicht
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

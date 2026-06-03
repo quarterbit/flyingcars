@@ -1,0 +1,35 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = 'Laden und Wallbox im Garagenhof – Erfahrungen und Tipps zur Elektrifizierung.', image } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | flyingcars.blog</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  {image && <meta property="og:image" content={`${Astro.site}${base.slice(1)}img/${image}`} />}
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+</head>
+<body class="bg-white text-slate-800 min-h-screen flex flex-col antialiased">
+  <Nav />
+  <main class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

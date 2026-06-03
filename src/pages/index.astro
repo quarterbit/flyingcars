@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title="Start">
+  <!-- Hero -->
+  <section class="bg-charcoal text-white py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="inline-block px-4 py-1.5 text-sm rounded-full bg-sky-500/20 text-sky-300 font-medium mb-6">
+        ⚡ E-Mobilität im Garagenhof
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        Garagenhof<br class="sm:hidden" /> elektrifizieren
+      </h1>
+      <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10">
+        Von der Planung über die Eigentümervereinbarung bis zur fertigen Wallbox &mdash;
+        unsere Erfahrungen und Tipps für euer Projekt.
+      </p>
+      <a href="#beitraege" class="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white rounded-lg font-medium transition-colors">
+        Zu den Beiträgen
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section id="beitraege" class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900 mb-3">Unsere Beiträge</h2>
+        <p class="text-slate-500 max-w-xl mx-auto">
+          Schritt für Schritt zum elektrifizierten Garagenhof &mdash; von den ersten Überlegungen bis zur fertigen Installation.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map(post => (
+          <ArticleCard
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            image={post.data.image}
+            slug={post.slug}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="bg-gradient-to-br from-sky-50 to-amber-50 rounded-2xl p-8 md:p-12 border border-sky-100">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Eigentümervereinbarung als Vorlage</h2>
+        <p class="text-slate-600 mb-6 max-w-xl mx-auto">
+          Ihr plant ein ähnliches Projekt? Unsere Vorlage einer Eigentümervereinbarung
+          könnt ihr kostenlos herunterladen und für eure Bedürfnisse anpassen.
+        </p>
+        <a href={`${base}downloads/`} class="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white rounded-lg font-medium transition-colors">
+          Zum Download
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
