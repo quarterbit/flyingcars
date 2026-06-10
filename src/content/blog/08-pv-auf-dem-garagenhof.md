@@ -28,6 +28,10 @@ Manche Nachbarn sind zwar Eigentümer, haben ihre Garage aber vermietet. Der eig
 
 Viele Berufstätige sind tagsüber mit dem Auto unterwegs. Genau dann fällt der Solarstrom an. Wenn das Fahrzeug tagsüber nicht am Garagenhof steht, kann der erzeugte Strom oft nicht direkt zum Laden genutzt werden. Ohne zusätzliche Speicherlösung sinkt damit der praktische Vorteil deutlich.
 
+Falls man nun argumentiert, dass sich diese zeitliche Lücke einfach mit einer Batterie ausgleichen ließe, lohnt ein nüchterner Blick auf die Größenordnungen: Ein typisches E-Fahrzeug hat schnell einen Ladebedarf von rund 50 kWh. Übliche Heimspeicher liegen dagegen oft eher im Bereich von etwa 5 bis 15 kWh.
+
+Eine stationäre Speicherlösung, die nachts mehrere Fahrzeugakkus versorgen und gleichzeitig zuverlässig Leistungen oberhalb von 11 kW bereitstellen soll, ist in vielen Gemeinschaftsprojekten kaufmännisch und auch platztechnisch nur schwer realistisch. Zusätzlich fallen entlang der Kette spürbare Umwandlungsverluste an (PV-DC -> Batterie -> AC an der Wallbox -> DC im Fahrzeugakku), die den nutzbaren Energieanteil weiter reduzieren.
+
 ## Technische Last und Kosten
 
 Ja, eine Wallbox kann gedrosselt werden, zum Beispiel auf etwa 4 kW. Wenn aber gleichzeitig 1 bis 2 Fahrzeuge mit 11 kW laden können sollen, muss die Anlage auf drei Phasen entsprechend Leistung bereitstellen. Dafür braucht es leistungsfähige Wechselrichter und eine insgesamt größere, sauber ausgelegte Installation. Das ist technisch machbar, aber nicht günstig.
