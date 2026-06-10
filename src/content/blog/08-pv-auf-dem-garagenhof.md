@@ -1,17 +1,15 @@
 ---
 title: "PV auf dem Garagenhof: Gleich mitdenken oder später nachrüsten?"
-date: 2022-05-15
+date: 2026-06-10
 description: "Überlegung zur gemeinschaftlichen PV-Anlage im Garagenhof mit Chancen, Risiken und einer persönlichen Einschätzung."
 image: "pv-auf-der-garage.png"
 tags: ["PV", "Garagenhof", "Wirtschaftlichkeit", "Gemeinschaft"]
 ---
-
 Immer wieder kommt die Frage auf, ob man bei der initialen Elektrifizierung des Garagenhofs nicht direkt auch PV-Module mit installieren sollte. Die Idee wirkt auf den ersten Blick sehr attraktiv, und ich finde es absolut richtig, diese Option früh zu diskutieren.
-
+date: 2026-06-10
 Positiv ist vor allem:
 
 - Ökologisch ist eine lokale Stromerzeugung ein klarer Vorteil, weil weniger Netzstrom bezogen werden muss.
-- Eine PV-Anlage kann langfristig unabhängiger von steigenden Strompreisen machen.
 - Sichtbar genutzte erneuerbare Energie stärkt oft auch die Akzeptanz für die gesamte Modernisierung des Hofs.
 
 Trotzdem fällt meine Einschätzung bei einer gemischten Eigentümergemeinschaft eher kritisch aus.
